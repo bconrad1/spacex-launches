@@ -47,7 +47,10 @@ class LandingPage extends Component {
           var article = json[i].article;
           var video = json[i].video;
           var details = json[i].details;
-          var success = json[i].details;
+          var success = json[i].success;
+          
+          //var success = success==='true' ? true : false;
+       
 
           var resJson = new Object();
           resJson.id = i+1;

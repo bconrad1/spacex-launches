@@ -40,9 +40,6 @@ render() {
 
     const displayLaunches =  this.props.data.map((launch)=>
 
-        
-
-        
         <div style= {styles.cardContainer} className = {'flight-element-'+ launch.flight}>       
             <Grid style={styles.grid}>
                 <Grid.Column width={7} verticalAlign={'middle'}>
@@ -56,10 +53,8 @@ render() {
                 </Grid.Column>
             </Grid>
             <div  className='vertical-timeline'/>
+            
         </div>
-        
-       
-       
     ); 
 
 
