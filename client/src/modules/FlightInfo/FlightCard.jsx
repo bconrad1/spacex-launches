@@ -49,10 +49,10 @@ render() {
                     <Image style = {styles.missionPatch} src={launch.missionPatch}/>                     
                 </Grid.Column>
                 <Grid.Column width={7} verticalAlign={'middle'}>
-                    <span className='timeline-date'>{this.formatDate(launch.date)}</span>                          
+                    <span className='timeline-date'>{this.formatDate(launch.date)}</span>                   
                 </Grid.Column>
             </Grid>
-            <div  className='vertical-timeline'/>
+            <div style={styles.verticalTimeline}/>
             
         </div>
     ); 

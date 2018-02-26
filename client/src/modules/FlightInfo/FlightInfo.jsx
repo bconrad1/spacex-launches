@@ -20,13 +20,13 @@ class FlightInfo extends Component {
                         <Card.Header>
                             <h3 style = {styles.headFlightNum}>{'Flight Number ' + this.props.data.flight}</h3>
                             <h4 style = {styles.headFlightName}>{this.props.data.rocket['rocket_name'].toUpperCase()}</h4>
-                            <a href={this.props.data.video} target="_blank"><Icon name = "youtube" style={styles.youtubeIcon} className='hvr-grow'/></a>
+                                        <a href={this.props.data.video} target="_blank"><Icon name = "youtube" style={styles.youtubeIcon} className='hvr-grow'/></a>
                         </Card.Header>
                         <Card.Meta>
                         </Card.Meta>
                         <Card.Description>
                             <div>
-                                <b>Launch Status: </b>{this.props.data.success ? (<Icon name='checkmark' color="green" style={{fontSize:'16px'}}/>):<Icon name='remove' color="red" style={{fontSize:'16px'}}/>}
+                                <b>Mission Success: </b>{this.props.data.success ? (<Icon name='checkmark' color="green" style={{fontSize:'16px'}}/>):<Icon name='remove' color="red" style={{fontSize:'16px'}}/>}
                             </div>
                             <div>
                                 <b>Details: </b>{this.props.data.details}

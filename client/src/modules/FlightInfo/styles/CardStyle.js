@@ -43,4 +43,15 @@ style.headFlightName = {
     display:'inline-block',
     color: '#aaa',
 }
+
+style.verticalTimeline = {
+  content: '',
+  position: 'absolute',
+  top: '0',
+  height: '98%',
+  width: '4px',
+  background: '#ccc',
+  marginTop:'80px',
+  zIndex: '0'
+}
 export default style;

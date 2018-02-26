@@ -29,12 +29,23 @@ style.link = {
 }
 
 style.scrollBtn = {
-  fontSize: '16px',
+  fontSize: '14px',
   backgroundColor: '#204787',
   fontFamily: 'Orbitron',
   color:'white',
   borderRadius:'3px',
   left: '20px'
+}
+
+style.verticalTimeline = {
+  content: '',
+  position: 'absolute',
+  top: '0',
+  height: '98%',
+  width: '4px',
+  background: '#ccc',
+  marginTop:'80px',
+  zIndex: '0'
 }
 
 export default style;

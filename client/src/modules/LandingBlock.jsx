@@ -7,6 +7,7 @@ import styles from './styles/LandingStyle'
 import { Link } from 'react-router-dom';
 import FlightCard from './FlightInfo/FlightCard'
 import { VerticalTimeline, VerticalTimelineElement }  from 'react-vertical-timeline-component';
+import ScrollButton from './ScrollButton.jsx'
 import './styles/LandingBlock.css';
 
 class LandingPage extends Component {
@@ -16,7 +17,7 @@ class LandingPage extends Component {
 
     this.state = {
       launches : [],
-      scrollClass: 'scroll-btn-hidden',
+      scrollClass: '',
       scrollBtnVis: false,
     };
 
@@ -86,24 +87,27 @@ class LandingPage extends Component {
     var docHeight = Math.max( body.scrollHeight, body.offsetHeight, 
                     html.clientHeight, html.scrollHeight, html.offsetHeight );    
     
-    var className = 'scroll-btn-hidden'
-    var visible = true;
+    var visible;
 
     if(window.pageYOffset > 1000){
-        className = 'scroll-btn'
-        visible = true;
+
+        this.setState({
+          scrollBtnVis : true,
+        })   
+        
     }else{
-        className = 'scroll-btn-away'
+        this.setState({
+          scrollBtnVis : false,
+        })   
     }
 
-    this.setState({
-      scrollClass : className,
-    })   
+    
  
   }
 
-  scrollToTop(){
+  scrollToTop = () =>{
     window.scrollTo(0,0)
+
   }
  
 
@@ -139,10 +143,7 @@ class LandingPage extends Component {
           <Grid.Column width={2}/>
         </Grid.Row>
       </Grid> 
-            <div className={this.state.scrollClass}> 
-              <Button big  style={styles.scrollBtn}><Icon big name="arrow up"/></Button>
-              <Button big  style={styles.scrollBtn}><Icon big name="arrow down"/></Button>
-            </div>
+           <ScrollButton show={this.state.scrollBtnVis}/>
       </div>
       );
   }
