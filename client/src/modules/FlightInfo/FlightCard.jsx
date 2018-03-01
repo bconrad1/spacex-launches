@@ -1,9 +1,9 @@
 
 import React, { Component } from "react";
 import { Card, Image, Icon, Segment,Grid} from 'semantic-ui-react';
-import styles from './styles/CardStyle';
-import './styles/CardStyle.css';
 import FlightInfo from './FlightInfo.jsx'
+
+import './styles/CardStyle.css';
 
 class FlightCard extends Component {
   constructor(props) {
@@ -40,19 +40,19 @@ render() {
 
     const displayLaunches =  this.props.data.map((launch)=>
 
-        <div style= {styles.cardContainer} className = {'flight-element-'+ launch.flight}>       
-            <Grid style={styles.grid}>
+        <div className = {'flight-element-'+ launch.flight + ' card-container'}>       
+            <Grid className='grid-outer'>
                 <Grid.Column width={7} verticalAlign={'middle'}>
                     <FlightInfo data={launch}/>
                 </Grid.Column>
                 <Grid.Column width={2}>
-                    <Image style = {styles.missionPatch} src={launch.missionPatch}/>                     
+                    <Image className='mission-patch' src={launch.missionPatch}/>                     
                 </Grid.Column>
                 <Grid.Column width={7} verticalAlign={'middle'}>
                     <span className='timeline-date'>{this.formatDate(launch.date)}</span>                   
                 </Grid.Column>
             </Grid>
-            <div style={styles.verticalTimeline}/>
+            <div className='vertical-timeline'/>
             
         </div>
     ); 

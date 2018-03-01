@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import {Button,Icon} from 'semantic-ui-react';
 import './styles/ScrollBtn.css';
-import styles from './styles/LandingStyle';
 
 class ScrollButton extends Component{
 
@@ -10,7 +9,7 @@ class ScrollButton extends Component{
 
 
         this.state={
-            classes : ['example-component'],
+            classes : ['scroll-btn-pop'],
         }
 
         
@@ -25,7 +24,7 @@ class ScrollButton extends Component{
         if(nextProps.show === true){
             componentClasses.push('show');
         }else{
-            componentClasses = ['example-component'];
+            componentClasses = ['scroll-btn-pop'];
         }
 
         this.setState({
@@ -46,7 +45,7 @@ class ScrollButton extends Component{
     render() {
         return(
          <div className={this.state.classes.join(' ')}> 
-          <Button big style={styles.scrollBtn} onClick={this.scrollToTop}><Icon big name="arrow up"/>To Top</Button>
+          <Button big className={'scroll-btn'} onClick={this.scrollToTop}><Icon big name="arrow up"/>To Top</Button>
         </div>
       );
     };

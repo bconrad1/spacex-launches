@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { Route, Switch, Redirect } from 'react-router-dom';
-import Main from './modules/Main.jsx';
+import Main from './modules/Main/Main.jsx';
 
 class App extends Component {
 

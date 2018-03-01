@@ -3,11 +3,11 @@
 import React, { Component } from "react";
 import { Grid, Message, Card} from 'semantic-ui-react'
 import { Segment, Button, Divider, Icon, Form, Image} from 'semantic-ui-react'
-import styles from './styles/LandingStyle'
 import { Link } from 'react-router-dom';
-import FlightCard from './FlightInfo/FlightCard'
+import FlightCard from '../FlightInfo/FlightCard'
 import { VerticalTimeline, VerticalTimelineElement }  from 'react-vertical-timeline-component';
-import ScrollButton from './ScrollButton.jsx'
+import ScrollButton from '../Main/ScrollButton.jsx'
+
 import './styles/LandingBlock.css';
 
 class LandingPage extends Component {
@@ -99,18 +99,9 @@ class LandingPage extends Component {
         this.setState({
           scrollBtnVis : false,
         })   
-    }
-
-    
+    }    
  
   }
-
-  scrollToTop = () =>{
-    window.scrollTo(0,0)
-
-  }
- 
-
 
   render() {  
 
@@ -126,9 +117,9 @@ class LandingPage extends Component {
         <Grid.Row>
           <Grid.Column width={3}/>
           <Grid.Column width={10}center>      
-            <div style={styles.headerContainer}>
-              <Image src='spacex.png' style={styles.logo} centered/>
-              <span style={styles.subHeader}><h1 style={{textAlign:'center'}}>Launches</h1></span>
+            <div className='header-container'>
+              <Image src='spacex.png' className='spacex-logo' centered/>
+              <span className='sub-header'><h1 style={{textAlign:'center'}}>Launches</h1></span>
             </div>
           </Grid.Column>
           <Grid.Column/>
@@ -136,7 +127,7 @@ class LandingPage extends Component {
         <Grid.Row>
           <Grid.Column width={2}/>
           <Grid.Column width={12}>
-            <div style={styles.timelineContainer}>
+            <div>
               <FlightCard data={this.state.launches}/>            
             </div>
           </Grid.Column>

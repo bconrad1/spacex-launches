@@ -1,6 +1,6 @@
 
 
-.example-component {
+.scroll-btn-pop {
   position: fixed;
   top: 0;
   left:10px;
@@ -11,10 +11,18 @@
   opacity: 0;
   visibility: hidden; 
 }
-.example-component.show {
+.scroll-btn-pop.show {
   opacity: 1;
   visibility: visible; 
 }
 
+.scroll-btn {
+  font-size: 14px;
+  background-color: #025085!important;
+  font-family: 'Orbitron'!important;
+  color:#fff!important;
+  border-radius: 2px!important;
+  left: 20px;
+}
 
 
