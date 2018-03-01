@@ -15,7 +15,7 @@ class FlightInfo extends Component {
     render() {
         return (
             <div>
-                <Card fluid color='blue' raised className='card'>
+                <Card fluid color='blue' raised className='card-outer'>
                     <Card.Content>
                         <Card.Header>
                             <h3 className='header-flight-number'>{'Flight Number ' + this.props.data.flight}</h3>

@@ -18,6 +18,7 @@
 	display:flex;
 	justify-content: center;
 	margin-top: 75px;
+
 }
 
 .grid-outer{
@@ -72,7 +73,7 @@
 	display: 'inline-block';
 }
 
-.card{
-	width:80%;
+.card-outer{
+	width:85%!important;
     z-index:2;
 }
