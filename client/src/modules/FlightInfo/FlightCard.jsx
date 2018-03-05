@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import { Card, Image, Icon, Segment,Grid} from 'semantic-ui-react';
 import FlightInfo from './FlightInfo.jsx'
 
+
 import './styles/CardStyle.css';
 
 class FlightCard extends Component {
@@ -14,6 +15,7 @@ class FlightCard extends Component {
     }
    
   }
+
 
 formatDate(date){
 
@@ -40,7 +42,8 @@ render() {
 
     const displayLaunches =  this.props.data.map((launch)=>
 
-        <div className = {'flight-element-'+ launch.flight + ' card-container'}>       
+        <div className = {'flight-element-'+ launch.flight + ' card-container'}>  
+             
             <Grid className='grid-outer'>
                 <Grid.Column width={7} verticalAlign={'middle'}>
                     <FlightInfo data={launch}/>

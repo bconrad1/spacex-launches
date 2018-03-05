@@ -1,6 +1,8 @@
 import React from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import LandingBlock from '../LandingPage/LandingBlock.jsx';
+import './styles/Main.css';
+
 class Main extends React.Component {
 
     constructor(props) {

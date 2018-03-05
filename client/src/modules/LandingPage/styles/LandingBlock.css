@@ -1,15 +1,3 @@
-.vertical-timeline{
-  content: '';
-  position: absolute;
-  top: 0;
-  height: 98%;
-  width: 4px;
-  background: #ccc;
-
-  margin-top:80px;
-  z-index: 0;
-}
-
 .header-container{
   margin-bottom: 150px;
 }
@@ -31,4 +19,8 @@
   width: 50%;
   margin-top:125px;
   margin-bottom:20px;
+}
+
+.grid-container{
+
 }

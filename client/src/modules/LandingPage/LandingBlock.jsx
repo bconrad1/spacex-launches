@@ -7,7 +7,6 @@ import { Link } from 'react-router-dom';
 import FlightCard from '../FlightInfo/FlightCard'
 import { VerticalTimeline, VerticalTimelineElement }  from 'react-vertical-timeline-component';
 import ScrollButton from '../Main/ScrollButton.jsx'
-
 import './styles/LandingBlock.css';
 
 class LandingPage extends Component {
@@ -113,7 +112,7 @@ class LandingPage extends Component {
 
     return (
       <div>
-      <Grid style={{backgroundColor: '#fff',}}>
+      <Grid className="grid-container">
         <Grid.Row>
           <Grid.Column width={3}/>
           <Grid.Column width={10}center>      

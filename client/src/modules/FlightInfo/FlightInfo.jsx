@@ -1,7 +1,10 @@
 import React, { Component } from "react";
 import { Card, Image, Icon, Segment,Grid} from 'semantic-ui-react'
+import VisibilitySensor from 'react-visibility-sensor';
 
 import './styles/CardStyle.css'
+
+
 
 class FlightInfo extends Component {
     constructor(props) {
@@ -9,18 +12,29 @@ class FlightInfo extends Component {
         super(props);
         this.state = {
             launches : this.props.data,
+            visible: false,
         }
     }
 
+
+    onVisibilitySensorChange = (isVisible)  =>{
+        if (isVisible) {
+          this.setState({ visible: true });
+        }
+
+    }
+
+
     render() {
         return (
-            <div>
-                <Card fluid color='blue' raised className='card-outer'>
+            <div> 
+            <VisibilitySensor onChange={this.onVisibilitySensorChange}>   
+                <Card fluid color='blue' raised className={`card-outer ${this.state.visible ? 'bounce' :'is-hidden'}`}>
                     <Card.Content>
                         <Card.Header>
                             <h3 className='header-flight-number'>{'Flight Number ' + this.props.data.flight}</h3>
                             <h4 className='header-flight-name'>{this.props.data.rocket['rocket_name'].toUpperCase()}</h4>
-                                        <a href={this.props.data.video} target="_blank"><Icon name = "youtube" className='youtube-link' className='hvr-grow'/></a>
+                            <a href={this.props.data.video} target="_blank" className='youtube-link'><Icon name = "youtube" className='hvr-grow'/></a>
                         </Card.Header>
                         <Card.Meta>
                         </Card.Meta>
@@ -38,7 +52,7 @@ class FlightInfo extends Component {
                     </Card.Content>
                     <div className='card-pointer'/> 
                 </Card>
-                
+                </VisibilitySensor>
             </div>
         )
     }
