@@ -25,7 +25,7 @@ class LandingPage extends Component {
   componentWillMount(){    
    
     
-     const url = "http://localhost:3001/api/launches";
+    const url = "http://localhost:3001/api/launches";
 
     fetch(url)
     .then(function(response) {

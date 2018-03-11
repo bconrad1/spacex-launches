@@ -13,9 +13,14 @@ class FlightCard extends Component {
     this.state = {
         launches : this.props.data,
     }
+
+    window.addEventListener('resize', this.handleResize);
    
   }
 
+handleResize = () =>{
+
+}
 
 formatDate(date){
 
@@ -45,10 +50,10 @@ render() {
         <div className = {'flight-element-'+ launch.flight + ' card-container'}>  
              
             <Grid className='grid-outer'>
-                <Grid.Column width={7} verticalAlign={'middle'}>
+                <Grid.Column width={7} verticalAlign={'middle'} className='info-container'>
                     <FlightInfo data={launch}/>
                 </Grid.Column>
-                <Grid.Column width={2}>
+                <Grid.Column width={2} className='patch-image'>
                     <Image className='mission-patch' src={launch.missionPatch}/>                     
                 </Grid.Column>
                 <Grid.Column width={7} verticalAlign={'middle'}>

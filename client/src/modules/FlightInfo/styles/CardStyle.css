@@ -1,3 +1,20 @@
+@media only screen and (min-width: 1171px){
+
+.card-outer{
+	width:85%!important;
+    z-index:2;
+}
+
+
+.card-container{
+	display:flex;
+	justify-content: center;
+	margin-top: 75px;
+
+}
+
+}
+
 .timeline-date{
     opacity: .5;
     font-size: 16px;
@@ -73,21 +90,11 @@
 	display: 'inline-block';
 }
 
-.card-outer{
-	width:85%!important;
-    z-index:2;
-}
 
-.is-hidden{
-	visibility: hidden;
-}
 
-.bounce{
-	  visibility: visible;
-    -webkit-animation: bounce-in 0.6s;
-    -moz-animation: bounce-in 0.6s;
-    animation: bounce-in 0.6s;
-}
+
+
+
 
 @keyframes bounce-in {
   0% {
@@ -115,4 +122,34 @@
     -o-transform: scale(1);
     transform: scale(1);
   }
+}
+
+
+@media only screen and (max-width: 1170px){
+
+.patch-image{
+	display:none;
+}
+
+.mission-patch{
+	display:none!important;
+}
+.vertical-timeline{
+	display:none;
+}
+.timeline-date{
+	visibility:hidden;
+}
+
+.middle.aligned.seven.wide.column.info-container{
+	width:100%!important;
+}
+
+.card-container{
+	display:flex;
+	justify-content: center;
+	margin-top: 25px;
+
+}
+
 }
