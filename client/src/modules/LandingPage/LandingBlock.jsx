@@ -1,11 +1,9 @@
 //Landing Page
 
 import React, { Component } from "react";
-import { Grid, Message, Card} from 'semantic-ui-react'
-import { Segment, Button, Divider, Icon, Form, Image} from 'semantic-ui-react'
-import { Link } from 'react-router-dom';
+import { Grid } from 'semantic-ui-react'
+import { Image } from 'semantic-ui-react'
 import FlightCard from '../FlightInfo/FlightCard'
-import { VerticalTimeline, VerticalTimelineElement }  from 'react-vertical-timeline-component';
 import ScrollButton from '../Main/ScrollButton.jsx'
 import './styles/LandingBlock.css';
 
@@ -79,14 +77,6 @@ class LandingPage extends Component {
 
   handleScroll = () =>{
 
-    var winHeight = window.innerHeight;
-
-    var body = document.body;
-    var html = document.documentElement;
-    var docHeight = Math.max( body.scrollHeight, body.offsetHeight, 
-                    html.clientHeight, html.scrollHeight, html.offsetHeight );    
-    
-    var visible;
 
     if(window.pageYOffset > 1000){
 
@@ -103,12 +93,6 @@ class LandingPage extends Component {
   }
 
   render() {  
-
-    const date = {
-      
-    }
-
-
 
     return (
       <div>

@@ -1,6 +1,6 @@
 
 import React, { Component } from "react";
-import { Card, Image, Icon, Segment,Grid} from 'semantic-ui-react';
+import { Image, Grid} from 'semantic-ui-react';
 import FlightInfo from './FlightInfo.jsx'
 
 
