@@ -30,13 +30,12 @@ class ScrollButton extends Component{
 
     scrollToTop = () =>{
         window.scrollTo(0,0)
-
     }
  
     render() {
         return(
          <div className={this.state.classes.join(' ')}> 
-          <Button big className={'scroll-btn'} onClick={this.scrollToTop}><Icon big name="arrow up"/>To Top</Button>
+          <Button className={'scroll-btn'} onClick={this.scrollToTop}><Icon name="arrow up"/>To Top</Button>
         </div>
       );
     };

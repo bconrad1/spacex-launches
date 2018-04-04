@@ -23,8 +23,7 @@ class LandingPage extends Component {
 
   }
 
-  componentWillMount(){    
-   
+  componentWillMount(){     
     
     const url = "http://localhost:3001/api/launches";
 
@@ -34,27 +33,22 @@ class LandingPage extends Component {
     }).then((json) => {           
 
        
-       var launches = [];
-       var flightNums = [];
+       let launches = [];
+       let flightNums = [];
 
-       for(var i = 0; i < json.length; i++) {
-
-          
+       for(let i = 0; i < json.length; i++) {          
         
-          var rocket = json[i].rocket;
-          var flightNum = json[i].flight;
-          var date = json[i].date;
-          var launchSite = json[i].launchSite;
-          var missionPatch = json[i].missionPatch;
-          var article = json[i].article;
-          var video = json[i].video;
-          var details = json[i].details;
-          var success = json[i].success;
-          
-          //var success = success==='true' ? true : false;
-       
+          let rocket = json[i].rocket;
+          let flightNum = json[i].flight;
+          let date = json[i].date;
+          let launchSite = json[i].launchSite;
+          let missionPatch = json[i].missionPatch;
+          let article = json[i].article;
+          let video = json[i].video;
+          let details = json[i].details;
+          let success = json[i].success;
 
-          var resJson = new Object();
+          let resJson = new Object();
           resJson.id = i+1;
           resJson.rocket = rocket;
           resJson.date = date;
@@ -79,15 +73,11 @@ class LandingPage extends Component {
           loadingStatus: false,
         })   
        
-    });  
-     
-  window.addEventListener('scroll', this.handleScroll);
-
+    });       
+    window.addEventListener('scroll', this.handleScroll);
   }
 
   handleScroll = () =>{
-
-
     if(window.pageYOffset > 1000){
 
         this.setState({
@@ -99,18 +89,17 @@ class LandingPage extends Component {
           scrollBtnVis : false,
         })   
     }    
- 
-  }
+   }
 
   render() {  
 
     return (
       <div>
-      <div clasName = "loading-screen"/>
+      <div className = "loading-screen-temp"/>
       <Grid className="grid-container">
         <Grid.Row>
           <Grid.Column width={3}/>
-          <Grid.Column width={10}center>      
+          <Grid.Column width={10} centered>      
             <div className='header-container'>
               <Image src='spacex.png' className='spacex-logo' centered/>
               <span className='sub-header'><h1 style={{textAlign:'center'}}>Launches</h1></span>

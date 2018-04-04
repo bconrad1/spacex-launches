@@ -41,7 +41,7 @@ formatDate(date){
 
 render() {
     const displayLaunches =  this.props.data.map((launch)=>
-        <div className = {'flight-element-'+ launch.flight + ' card-container'}>             
+        <div className = {'flight-element-'+ launch.flight + ' card-container'} key={launch.flight}>             
             <Grid className='grid-outer'>
                 <Grid.Column width={7} verticalAlign={'middle'} className='info-container'>
                     <FlightInfo data={launch}/>
