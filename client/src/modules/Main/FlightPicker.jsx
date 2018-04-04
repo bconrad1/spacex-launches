@@ -6,19 +6,7 @@ import './styles/FlightPicker.css';
 
 class FlightPicker extends Component {
   constructor(props) {
-
     super(props);
-
-  }
-
-  findPos = (obj) => {
-    let curtop = 0;
-    if (obj.offsetParent) {
-        do {
-            curtop += obj.offsetTop;
-        } while (obj = obj.offsetParent);
-    return [curtop];
-    }
   }
 
   handleChange = (event, flightNum) => {
