@@ -21,6 +21,10 @@
   margin-bottom:20px;
 }
 
-.grid-container{
-
+.loading-screen{
+  background-color:blue;
+  z-index:100;
+  width:100%;
+  height:100%;
+  position: absolute;
 }

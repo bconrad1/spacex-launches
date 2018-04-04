@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "aos": "^2.2.0",
     "ava": "^0.25.0",
     "css-loader": "^0.28.9",
     "hover.css": "^2.2.1",
@@ -23,7 +24,7 @@
     "client": "cd client && npm run start",
     "server": "nodemon server.js",
     "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
-    "test": "ava"
+    "test": "ava --verbose"
   },
   "devDependencies": {
     "enzyme": "^3.3.0",

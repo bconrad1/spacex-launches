@@ -7,19 +7,14 @@ class ScrollButton extends Component{
     constructor(props) {
         super(props);
 
-
         this.state={
             classes : ['scroll-btn-pop'],
         }
-
-        
-
     }
 
     componentWillReceiveProps(nextProps){
 
-
-        var componentClasses = this.state.classes
+        let componentClasses = this.state.classes
 
         if(nextProps.show === true){
             componentClasses.push('show');
@@ -29,9 +24,7 @@ class ScrollButton extends Component{
 
         this.setState({
             classes: componentClasses,
-        });
-        
-
+        });   
        
     }
 
@@ -40,8 +33,6 @@ class ScrollButton extends Component{
 
     }
  
-
-
     render() {
         return(
          <div className={this.state.classes.join(' ')}> 

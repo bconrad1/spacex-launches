@@ -12,24 +12,14 @@ class FlightInfo extends Component {
         super(props);
         this.state = {
             launches : this.props.data,
-            visible: false,
+            visible: true
         }
     }
-
-
-    onVisibilitySensorChange = (isVisible)  =>{
-        if (isVisible) {
-          this.setState({ visible: true });
-        }
-
-    }
-
 
     render() {
         return (
-            <div> 
-            <VisibilitySensor onChange={this.onVisibilitySensorChange}>   
-                <Card fluid color='blue' raised className={`card-outer ${this.state.visible ? 'bounce' :'is-hidden'}`}>
+            <div>             
+                <Card data-aos="zoom-in" fluid color='blue' raised className={`card-outer ${this.state.visible ? 'bounce' :'is-hidden'}`}>
                     <Card.Content>
                         <Card.Header>
                             <h3 className='header-flight-number'>{'Flight Number ' + this.props.data.flight}</h3>
@@ -51,8 +41,7 @@ class FlightInfo extends Component {
                         <Icon name="world"/>{this.props.data.launchSite}
                     </Card.Content>
                     <div className='card-pointer'/> 
-                </Card>
-                </VisibilitySensor>
+                </Card>              
             </div>
         )
     }

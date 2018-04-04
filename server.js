@@ -22,6 +22,9 @@ app.use(function(req, res, next) {
 
 
 
+
+
+
 router.get('/', function(req, res) {
  res.json({ message: 'API Initialized!'});
 });
@@ -110,5 +113,11 @@ router.route('/launches').get(function(req,res){
 
 var db;
 
-app.use('/api', router);
-app.listen(port, () => console.log(`Listening on port ${port}`));
+
+function startServer(){
+  app.use('/api', router);
+  app.listen(port, () => console.log(`Listening on port ${port}`));
+}
+
+
+startServer();

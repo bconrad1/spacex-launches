@@ -1,10 +1,11 @@
 //Landing Page
 
 import React, { Component } from "react";
-import { Grid } from 'semantic-ui-react'
-import { Image } from 'semantic-ui-react'
-import FlightCard from '../FlightInfo/FlightCard'
-import ScrollButton from '../Main/ScrollButton.jsx'
+import { Grid } from 'semantic-ui-react';
+import { Image } from 'semantic-ui-react';
+import FlightCard from '../FlightInfo/FlightCard';
+import FlightPicker from '../Main/FlightPicker.jsx';
+import ScrollButton from '../Main/ScrollButton.jsx';
 import './styles/LandingBlock.css';
 
 class LandingPage extends Component {
@@ -14,8 +15,10 @@ class LandingPage extends Component {
 
     this.state = {
       launches : [],
+      flightNums : [],
       scrollClass: '',
       scrollBtnVis: false,
+      loadingStatus: true
     };
 
   }
@@ -32,6 +35,7 @@ class LandingPage extends Component {
 
        
        var launches = [];
+       var flightNums = [];
 
        for(var i = 0; i < json.length; i++) {
 
@@ -63,10 +67,16 @@ class LandingPage extends Component {
           resJson.success = success;
 
           launches.push(resJson);
+          flightNums.push({
+            text: 'Flight ' + (i+1),
+            value: i+1
+          });
         }
         
         this.setState({
           launches: launches,
+          flightNums: flightNums,
+          loadingStatus: false,
         })   
        
     });  
@@ -96,6 +106,7 @@ class LandingPage extends Component {
 
     return (
       <div>
+      <div clasName = "loading-screen"/>
       <Grid className="grid-container">
         <Grid.Row>
           <Grid.Column width={3}/>
@@ -103,6 +114,7 @@ class LandingPage extends Component {
             <div className='header-container'>
               <Image src='spacex.png' className='spacex-logo' centered/>
               <span className='sub-header'><h1 style={{textAlign:'center'}}>Launches</h1></span>
+              <FlightPicker flights={this.state.flightNums}/>
             </div>
           </Grid.Column>
           <Grid.Column/>
