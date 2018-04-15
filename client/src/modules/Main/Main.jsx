@@ -9,12 +9,10 @@ class Main extends React.Component {
     render = () => {
 
         return (
-            <div className="app-container" style={ { height: '100%', width: '100%', margin: '0px', position: 'absolute' } }>
-              
-              <Switch>
-                <Route exact path='/' component={ LandingBlock } />
-
-              </Switch>
+            <div className="app-container" style={{ height: '100%', width: '100%', margin: '0px', position: 'absolute' }}>
+                <Switch>
+                    <Route exact path='/' component={LandingBlock} />
+                </Switch>
             </div>
         )
     };

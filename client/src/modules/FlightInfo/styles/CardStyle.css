@@ -1,18 +1,14 @@
 @media only screen and (min-width: 1171px){
+	.card-outer{
+		width:85%!important;
+		z-index:2;
+	}
 
-.card-outer{
-	width:85%!important;
-    z-index:2;
-}
-
-
-.card-container{
-	display:flex;
-	justify-content: center;
-	margin-top: 75px;
-
-}
-
+	.card-container{
+		display:flex;
+		justify-content: center;
+		margin-top: 75px;
+	}
 }
 
 .timeline-date{
@@ -20,11 +16,6 @@
     font-size: 16px;
     font-family: 'Orbitron';
     margin-left: 50px;
-}
-
-/* Grow */
-.hvr-grow {
-
 }
 
 .hvr-grow:hover {
@@ -88,6 +79,7 @@
 	left: 100%;
 	top: 5px;
 	display: 'inline-block';
+
 }
 
 
@@ -135,29 +127,32 @@
 
 @media only screen and (max-width: 1170px){
 
-.patch-image{
-	display:none;
-}
+	.patch-image{
+		display:none;
+	}
 
-.mission-patch{
-	display:none!important;
-}
-.vertical-timeline{
-	display:none;
-}
-.timeline-date{
-	visibility:hidden;
-}
+	.mission-patch{
+		display:none!important;
+	}
+	.vertical-timeline{
+		display:none;
+	}
+	.timeline-date{
+		visibility:hidden;
+	}
 
-.middle.aligned.seven.wide.column.info-container{
-	width:100%!important;
-}
+	.middle.aligned.seven.wide.column.info-container{
+		width:100%!important;
+	}
 
-.card-container{
-	display:flex;
-	justify-content: center;
-	margin-top: 25px;
-
-}
+	.card-container{
+		display:flex;
+		justify-content: center;
+		margin-top: 25px;
+	}
+	
+	.card-pointer{
+		display:none;
+	}
 
 }

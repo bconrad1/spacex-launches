@@ -8,7 +8,7 @@ class ScrollButton extends Component{
         super(props);
 
         this.state={
-            classes : ['scroll-btn-pop'],
+            class: 'scorll-btn',
         }
     }
 
@@ -17,9 +17,9 @@ class ScrollButton extends Component{
         let componentClasses = this.state.classes
 
         if(nextProps.show === true){
-            componentClasses.push('show');
+            componentClasses = 'scroll-btn-pop show'
         }else{
-            componentClasses = ['scroll-btn-pop'];
+            componentClasses = 'scroll-btn-pop';
         }
 
         this.setState({
@@ -34,7 +34,7 @@ class ScrollButton extends Component{
  
     render() {
         return(
-         <div className={this.state.classes.join(' ')}> 
+         <div className={this.state.classes}> 
           <Button className={'scroll-btn'} onClick={this.scrollToTop}><Icon name="arrow up"/>To Top</Button>
         </div>
       );
