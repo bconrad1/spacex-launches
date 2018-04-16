@@ -6,6 +6,8 @@ import { Image } from 'semantic-ui-react';
 import FlightCard from '../FlightInfo/FlightCard';
 import FlightPicker from '../Main/FlightPicker.jsx';
 import ScrollButton from '../Main/ScrollButton.jsx';
+import Immutable from 'immutable';
+
 import './styles/LandingBlock.css';
 
 class LandingPage extends Component {
@@ -91,9 +93,9 @@ class LandingPage extends Component {
             <Grid className="grid-container">
               <Grid.Row>
                 <Grid.Column width={3} />
-                <Grid.Column width={10} centered>
+                <Grid.Column width={10}>
                   <div className='header-container'>
-                    <Image src='spacex.png' className='spacex-logo' centered />
+                    <Image src='spacex.png' className='spacex-logo' centered/>
                     <span className='sub-header'><h1 style={{ textAlign: 'center' }}>Launches</h1></span>
                     <FlightPicker flights={this.state.flightNums} />
                   </div>
@@ -104,7 +106,7 @@ class LandingPage extends Component {
                 <Grid.Column width={2} />
                 <Grid.Column width={12}>
                   <div>
-                    <FlightCard data={this.state.launches} />
+                    <FlightCard data={Immutable.fromJS(this.state.launches)} />
                   </div>
                 </Grid.Column>
                 <Grid.Column width={2} />

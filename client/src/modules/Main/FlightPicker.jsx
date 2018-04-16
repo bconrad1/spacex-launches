@@ -1,13 +1,10 @@
 import React, { Component } from "react";
 import { Dropdown } from 'semantic-ui-react';
-import { Link, DirectLink, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll';
+import { scroller } from 'react-scroll';
 
 import './styles/FlightPicker.css';
 
 class FlightPicker extends Component {
-  constructor(props) {
-    super(props);
-  }
 
   handleChange = (event, flightNum) => {
     let className = 'flight-element-' + flightNum.value;

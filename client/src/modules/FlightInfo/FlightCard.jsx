@@ -2,7 +2,8 @@
 import React, { Component } from "react";
 import { Image, Grid } from 'semantic-ui-react';
 import FlightInfo from './FlightInfo.jsx'
-
+import ImmutablePropTypes from 'react-immutable-proptypes';
+import Immutable from 'immutable';
 
 import './styles/CardStyle.css';
 
@@ -12,11 +13,9 @@ class FlightCard extends Component {
         this.state = {
             launches: this.props.data,
         }
-        
+
         window.addEventListener('resize', this.handleResize);
-
     }
-
 
     formatDate(date) {
         const monthNames = ["January", "February", "March", "April", "May", "June",
@@ -38,16 +37,16 @@ class FlightCard extends Component {
 
     render() {
         const displayLaunches = this.props.data.map((launch) =>
-            <div className={'flight-element-' + launch.flight + ' card-container'} key={launch.flight}>
+            <div className={'flight-element-' + launch.get('flight') + ' card-container'} key={launch.get('flight')}>
                 <Grid className='grid-outer'>
                     <Grid.Column width={7} verticalAlign={'middle'} className='info-container'>
-                        <FlightInfo data={launch} />
+                        <FlightInfo data={Immutable.fromJS(launch)} />
                     </Grid.Column>
                     <Grid.Column width={2} className='patch-image'>
-                        <Image className='mission-patch' src={launch.missionPatch} />
+                        <Image className='mission-patch' src={launch.get('missionPatch')} />
                     </Grid.Column>
                     <Grid.Column width={7} verticalAlign={'middle'}>
-                        <span className='timeline-date'>{this.formatDate(launch.date)}</span>
+                        <span className='timeline-date'>{this.formatDate(launch.get('date'))}</span>
                     </Grid.Column>
                 </Grid>
                 <div className='vertical-timeline' />
@@ -60,6 +59,10 @@ class FlightCard extends Component {
             </div>
         );
     }
+}
+
+FlightCard.proptypes = {
+    launches: ImmutablePropTypes.list,
 }
 
 export default FlightCard;
