@@ -4,42 +4,19 @@ import './styles/ScrollBtn.css';
 
 class ScrollButton extends Component{
 
-    constructor(props) {
-        super(props);
-
-        this.state={
-            class: 'scorll-btn',
-        }
-    }
-
-    componentWillReceiveProps(nextProps){
-
-        let componentClasses = this.state.classes
-
-        if(nextProps.show === true){
-            componentClasses = 'scroll-btn-pop show'
-        }else{
-            componentClasses = 'scroll-btn-pop';
-        }
-
-        this.setState({
-            classes: componentClasses,
-        });   
-       
-    }
-
     scrollToTop = () =>{
         window.scrollTo(0,0)
     }
- 
+
     render() {
+        let {show} = this.props;
         return(
-         <div className={this.state.classes}> 
+         <div className={show ? 'scroll-btn-container-show' : 'scroll-btn-container-hide'}>
           <Button className={'scroll-btn'} onClick={this.scrollToTop}><Icon name="arrow up"/>To Top</Button>
         </div>
       );
     };
-    
-  
+
+
 }
 export default ScrollButton;
