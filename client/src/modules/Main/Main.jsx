@@ -4,10 +4,7 @@ import LandingBlock from '../LandingPage/LandingBlock.jsx';
 import './styles/Main.css';
 
 class Main extends React.Component {
-
-
     render = () => {
-
         return (
             <div className="app-container" style={{ height: '100%', width: '100%', margin: '0px', position: 'absolute' }}>
                 <Switch>

@@ -1,15 +1,9 @@
 import React, {Component} from 'react';
 import {Dropdown} from 'semantic-ui-react';
 import {scroller} from 'react-scroll';
-
 import './styles/FlightPicker.css';
 
 class FlightPicker extends Component {
-
-  constructor(props) {
-    super(props);
-  }
-
   handleChange = (event, flightNum) => {
     let className = 'flight-element-' + flightNum.value;
     scroller.scrollTo(className, {
@@ -17,8 +11,6 @@ class FlightPicker extends Component {
       smooth: true,
       offset: 5,
     });
-
-
   };
 
   ref = dropdownRef => {
@@ -31,7 +23,7 @@ class FlightPicker extends Component {
           <Dropdown
               ref={this.ref}
               selection
-              options={this.props.flights}
+              options={this.props.flights.reverse()}
               placeholder='Select Flight'
               onChange={this.handleChange}
           />

@@ -1,11 +1,11 @@
 var express = require('express');
-var mongoose = require('mongoose');
+// var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
 var fetch = require('node-fetch');
 
 var app = express();
 var router = express.Router();
-var Schema = mongoose.Schema;
+// var Schema = mongoose.Schema;
 var port = process.env.API_PORT || 3001;
 
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -33,17 +33,13 @@ router.route('/latestLaunch').get(function(req, res) {
 
     var url = "https://api.spacexdata.com/v2/launches/latest"
     fetch(url).then(function(response) {
-      return response.json();      
+      return response.json();
      }).then(function(json){
-        
-        var rocket = json.rocket;
-        var flightNum = json.flight_number;
-        var date = json.launch_date_utc;
+        var {rocket, flightNum, date, details} = json;
         var launchSite = json.launch_site['site_name_long'];
         var missionPatch = json.links['mission_patch'];
         var article = json.links['article_link'];
         var video = json.links['video_link'];
-        var details = json.details;
 
         var resJson = new Object();
         resJson.rocket = rocket;
@@ -56,20 +52,17 @@ router.route('/latestLaunch').get(function(req, res) {
         resJson.details = details;
 
         res.send(JSON.stringify(resJson));
-
      });
-
-
- });
+});
 
 router.route('/launches').get(function(req,res){
     var launches = [];
     var url = "https://api.spacexdata.com/v2/launches"
     fetch(url).then(function(response) {
-      return response.json();      
+      return response.json();
      }).then(function(json){
-        
-    
+
+
         for(var i = 0; i < json.length; i++) {
 
           console.log()
@@ -98,11 +91,11 @@ router.route('/launches').get(function(req,res){
           resJson.details = details;
           resJson.success = success;
 
-          
+
 
           launches.push(resJson);
         }
-     
+
           launches.reverse();
 
         res.send(JSON.stringify(launches));
@@ -110,9 +103,6 @@ router.route('/launches').get(function(req,res){
 
 
 });
-
-var db;
-
 
 function startServer(){
   app.use('/api', router);

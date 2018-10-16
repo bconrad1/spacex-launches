@@ -2,30 +2,40 @@
   "name": "spacex-launches",
   "version": "0.1.0",
   "private": true,
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
+    "css-loader": "^1.0.0",
+    "file-loader": "^2.0.0",
+    "html-webpack-plugin": "^3.2.0",
+    "image-webpack-loader": "^4.3.1",
+    "node-sass": "^4.9.2",
+    "sass-loader": "^7.0.3",
+    "style-loader": "^0.21.0",
+    "svg-inline-loader": "^0.8.0",
+    "webpack": "^4.16.3",
+    "webpack-dev-server": "^3.1.5"
+  },
   "dependencies": {
-    "i": "^0.3.6",
-    "react": "^16.2.0",
-    "react-dom": "16.2.0",
-    "react-router-dom": "^4.2.2",
-    "react-scripts": "1.1.0",
-    "semantic-ui": "^2.2.13",
-    "semantic-ui-css": "2.2.12",
-    "semantic-ui-react": "0.77.2",
-    "webpack": "^3.10.0"
+    "lodash": "^4.17.10",
+    "prop-types": "^15.6.2",
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1",
+    "react-icons": "^3.0.5",
+    "react-scroll": "^1.7.10",
+    "semantic-ui-css": "^2.3.3",
+    "semantic-ui-react": "^0.82.3",
+    "webpack-cli": "^3.1.0"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "webpack-dev-server --mode development --open --hot",
     "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
+    "test": "jest",
     "eject": "react-scripts eject",
-	"test": "jest",
-	"test:watch": "jest --watch",
-	"test:coverage": "jest --coverage"
-  },
-  "jest": {
-  "setupFiles": ["./test/jestsetup.js"],
-  "snapshotSerializers": ["enzyme-to-json/serializer"]
-}
-  
-  
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage"
+  }
 }
