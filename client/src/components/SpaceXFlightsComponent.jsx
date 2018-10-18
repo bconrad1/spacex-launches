@@ -21,10 +21,11 @@ export class SpaceXFlightsComponent extends React.Component {
   };
 
   render() {
+    console.log(this.props.launches)
     return (
         this.props.launches.length > 0 ?
             <div className={'launch-container'}>
-              <FlightContainer/>
+              <FlightContainer launches={this.props.launches}/>
             </div> :
             <div>{}</div>);
   }
