@@ -48,10 +48,15 @@
       background: #fff;
       border: 1px solid #ccc;
     }
+    .pagination-tile-active{
+      background-color: $primaryColorDark;
+      color:white;
+    }
     .pagination-tile:hover{
-      background: $primaryColor;
+      background-color: $primaryColor;
       color: white;
       cursor: pointer;
+      border: 1px solid $primaryColorDark;
     }
     .pagination-tile:first-of-type{
       border-radius: 5px 0 0 5px;
