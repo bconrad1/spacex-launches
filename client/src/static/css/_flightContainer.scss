@@ -64,5 +64,16 @@
     .pagination-tile:last-of-type {
       border-radius: 0 5px 5px 0;
     }
+
+    .disabled{
+      color: #aaa;
+    }
+
+    .disabled:hover{
+      color: #aaa;
+      background-color: white;
+      border: 1px solid #ccc;
+      cursor: initial;
+    }
   }
 }

@@ -24,18 +24,39 @@ export class PaginationComponent extends Component {
     }
     return tileArray;
   };
+  handleOnClick = (value) => {
+    this.setState({
+      activeTile: value
+    });
+    this.props.handleClick(value);
+  }
+
 
   render() {
     let {launchLength, incrementValue} = this.props;
+    let {activeTile} = this.state;
     let tileCount = Math.ceil(launchLength / incrementValue);
+    let canGoForward = activeTile < tileCount;
+    let canGoBack = activeTile > 1; 
     return (
         <div className={'pagination-outer'}>
           <div className={'pagination-container'}>
-            <div className={'pagination-tile'}>{'<'}</div>
+          <div className={`${!canGoBack ? 'disabled' : ''} pagination-tile`}
+                  onClick={() => 
+                    {
+                      canGoBack ? this.handleOnClick(activeTile-1) : null
+                    }}                    
+                    >{'<'}</div>
             {
               this.getTiles(tileCount)
             }
-            <div className={'pagination-tile'}>{'>'}</div>
+            <div className={`${!canGoForward ? 'disabled' : ''} pagination-tile`}
+                  onClick={
+                    () => {
+                      canGoForward ? this.handleOnClick(activeTile+1) : null
+                    }
+                  }
+            >{'>'}</div>
           </div>
         </div>
     );
