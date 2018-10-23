@@ -27,7 +27,7 @@ export class FlightContainer extends React.Component {
       endValue: newEndValue,
       launches: fullLaunches.slice(newStartValue, newEndValue)
     });
-    window.scrollTo(0,0);
+    //window.scrollTo(0,0);
   }
 
   render() {
@@ -35,13 +35,19 @@ export class FlightContainer extends React.Component {
     let {launches, incrementValue} = this.state;
     return (
         <Fragment>
-          <div className={'flight-container-table-container'}>
-            <div className={'table-container-header'}/>
+          <table className={'flight-container-table-container'}>
+            <thead className={'table-container-header'}>
+              <th>{'#'}</th>
+              <th>{'Patch'}</th>
+              <th>{'Date'}</th>
+              <th>{''}</th>
+              <th>{''}</th>
+            </thead>
             {_.map(launches,(launch, index) => {
               return <FlightRow launch={launch} key={index}/>;
             })
             }
-          </div>
+          </table>
           <PaginationComponent launchLength={launchLength}
                                 handleClick={this.handleTileClick}
                                 incrementValue={incrementValue}/>
