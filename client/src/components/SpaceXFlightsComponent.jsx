@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import * as launchAction from '../redux/actions/launchAction';
 import {FlightContainer} from './FlightContainer/FlightContainer';
-import logo from '../static/images/spacex.png';
+import logo from '../static/images/spacex2.png';
 
 export class SpaceXFlightsComponent extends React.Component {
   constructor() {

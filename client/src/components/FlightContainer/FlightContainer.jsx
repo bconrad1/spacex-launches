@@ -1,7 +1,7 @@
 import React, {Fragment} from 'react';
 import PropTypes from 'prop-types';
 import _ from 'lodash';
-import FlightRow from './FlightRow/FlightRow';
+import FlightRow from './FlightCard/FlightCard';
 import Slider from 'react-slick';
 
 export class FlightContainer extends React.Component {
@@ -13,31 +13,16 @@ export class FlightContainer extends React.Component {
     };
   }
 
-  handleChange = (event) => {
-    let flightNumber = event.target.value;
-    let className = `flight-${flightNumber}`;
-    this.setState({sliderValue: flightNumber});
-  };
-
   render() {
     let {launches} = this.state;
-    var settings = {
-      dots: true,
-      infinite: true,
-      speed: 500,
-      slidesToShow: 3,
-      slidesToScroll: 1
-    };
     return (
         <Fragment>
-          <Slider{...settings}>
-            <div className={'flight-container-table-container'}>
-              {_.map(launches, (launch, index) => {
-                return <FlightRow launch={launch} key={index}/>;
-              })
-              }
-            </div>
-          </Slider>
+          <div className={'flight-container-header'}>
+            <div>{'Latest Launches'}</div>
+          </div>
+            {_.map(launches.slice(0, 3), launch => {
+              return <FlightRow launch={launch}/>;
+            })}
         </Fragment>
     );
   }
