@@ -1,62 +1,109 @@
 @import './_variables.scss';
-body{
+
+body {
   //font-family: 'Orbitron';
   font-family: 'Exo 2', sans-serif;
-}
-.launch-container {
-  margin: 100px auto;
-  max-width:1440px;
-  width: 75%;
+  background-color: white;
 }
 
+.launch-container {
+  display: flex;
+  height:100%;
+  align-items: center;
+}
+.logo-container {
+  min-width: 500px;
+  margin: 100px auto;
+  text-align: center;
+  .logo-img {
+    width: 750px;
+  }
+}
+.flight-container-table-container ::-webkit-scrollbar{
+  width: 500px!important;
+  height: 500px;
+}
 .flight-container-table-container {
-  background-color: white;
-  border-radius: 5px 5px 0 0;
-  width: 100%;
-  -webkit-box-shadow: 0px 0px 1px 2px rgba(0, 0, 0, 0.1);
-  -moz-box-shadow: 0px 0px 1px 2px rgba(0, 0, 0, 0.1);
-  box-shadow: 0px 0px 1px 2px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  white-space: nowrap;
+  margin-left:250px;
+  margin-right: 250px;
 
   .table-container-header {
     border-radius: 5px 5px 0 0;
     background-color: $primaryColor;
     color: white;
     letter-spacing: 2px;
-    th{
+    th {
       padding: 10px 36px;
     }
   }
+
+  .flight-row-container:first-child{
+    margin-left: 250px;
+  }
+  .flight-row-container:last-child{
+    margin-right: 250px;
+  }
   .flight-row-container {
-    border-bottom: 1px solid #ddd;
+    border-radius: 10px;
     vertical-align: middle;
-    margin: 10px;
-    .flight-row-image-container {
-      width: 150px;
-      .flight-row-image {
-        width: 125px;
-        padding: 15px 25px;
+    margin: 25px;
+    width: 400px;
+    height: 600px;
+    background-color: #555;
+    display: inline-block;
+    -webkit-box-shadow: 0px 0px 1px 2px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0px 0px 1px 2px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 0px 1px 2px rgba(0, 0, 0, 0.2);
+
+    .flight-row-number {
+      font-size: 18px;
+      color: #aaa;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    .flight-row-top{
+      background-color:#333;
+      position: relative;
+      height: 200px;
+      padding-top: 25px;
+      border-radius: 10px 10px 0 0;
+      -webkit-box-shadow: 0px 0px 1px 1px rgba(255, 255, 255, 0.2);
+      -moz-box-shadow: 0px 0px 1px 1px rgba(255, 255, 255, 0.2);
+      box-shadow: 0px 0px 1px 1px rgba(255, 255, 255, 0.2);
+
+      .flight-row-image-container {
+        width: 150px;
+        height:150px;
+        border-radius: 200px;
+        position: absolute;
+        top: 135px;
+        left: 50%;
+        transform: translateX(-50%);
+        .flight-row-image {
+          width: 125px;
+        }
       }
-    }
-    .flight-row-number{
-      font-size: 18px;
-      padding: 0 20px;
-      color: #777;
-      width: 50px;
-    }
-    .flight-row-date{
-      font-size: 18px;
-      padding: 0 36px;
-      color: #777;
-    }
-    .flight-row-num-img-container{
-      width: 125px;
-      background-color: #333;
+
+      .flight-row-name {
+        font-size: 32px;
+        color: #ddd;
+        text-align: center;
+        text-transform: uppercase;
+      }
+      .flight-row-date {
+        font-size: 18px;
+        padding: 0 36px;
+        color: #777;
+      }
     }
   }
 }
 
 .pagination-outer {
-  display:block;
+  display: block;
   text-align: center;
   margin-top: 20px;
   .pagination-container {
@@ -74,31 +121,31 @@ body{
       background: #fff;
       border: 1px solid #ccc;
     }
-    .pagination-tile:hover{
+    .pagination-tile:hover {
       background-color: #eee;
       color: #333;
       cursor: pointer;
     }
-    .pagination-tile-active{
+    .pagination-tile-active {
       background-color: $primaryColor;
-      color:white;
+      color: white;
     }
-    .pagination-tile-active:hover{
+    .pagination-tile-active:hover {
       background-color: $primaryColorDark;
-      color:white;
+      color: white;
     }
-    .pagination-tile:first-of-type{
+    .pagination-tile:first-of-type {
       border-radius: 5px 0 0 5px;
     }
     .pagination-tile:last-of-type {
       border-radius: 0 5px 5px 0;
     }
 
-    .disabled{
+    .disabled {
       color: #aaa;
     }
 
-    .disabled:hover{
+    .disabled:hover {
       color: #aaa;
       background-color: white;
       border: 1px solid #ccc;

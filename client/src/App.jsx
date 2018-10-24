@@ -4,7 +4,7 @@ import './static/css/index.scss';
 class App extends Component {
   render() {
     return (
-      <div style={ { height: '100%', width: '100%', margin: '0px', position: 'absolute' } }>
+      <div style={ { height: '100%', margin: '0px'} }>
         <SpaceXFlightsComponent/>
       </div>
       );

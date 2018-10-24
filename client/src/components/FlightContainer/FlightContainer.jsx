@@ -1,56 +1,43 @@
 import React, {Fragment} from 'react';
 import PropTypes from 'prop-types';
-import Logo from '../../static/images/spacex.png';
 import _ from 'lodash';
-import PaginationComponent from './PaginationComponent/PaginationComponent';
 import FlightRow from './FlightRow/FlightRow';
+import Slider from 'react-slick';
 
 export class FlightContainer extends React.Component {
   constructor(props) {
     super(props);
-    let incrementValue = 15;
-    let startValue = 0;
-    let endValue = incrementValue;
     this.state = {
-      fullLaunches: props.launches,
-      launches: props.launches.slice(startValue, endValue),
-      incrementValue,
+      launches: props.launches,
+      sliderValue: 1,
     };
   }
 
-  handleTileClick = (value) => {
-    let {incrementValue, fullLaunches} = this.state;
-    let newEndValue = value * incrementValue;
-    let newStartValue = newEndValue-incrementValue;
-    this.setState({
-      startValue: newStartValue,
-      endValue: newEndValue,
-      launches: fullLaunches.slice(newStartValue, newEndValue)
-    });
-    //window.scrollTo(0,0);
-  }
+  handleChange = (event) => {
+    let flightNumber = event.target.value;
+    let className = `flight-${flightNumber}`;
+    this.setState({sliderValue: flightNumber});
+  };
 
   render() {
-    let launchLength =    this.props.launches.length;
-    let {launches, incrementValue} = this.state;
+    let {launches} = this.state;
+    var settings = {
+      dots: true,
+      infinite: true,
+      speed: 500,
+      slidesToShow: 3,
+      slidesToScroll: 1
+    };
     return (
         <Fragment>
-          <table className={'flight-container-table-container'}>
-            <thead className={'table-container-header'}>
-              <th>{'#'}</th>
-              <th>{'Patch'}</th>
-              <th>{'Date'}</th>
-              <th>{''}</th>
-              <th>{''}</th>
-            </thead>
-            {_.map(launches,(launch, index) => {
-              return <FlightRow launch={launch} key={index}/>;
-            })
-            }
-          </table>
-          <PaginationComponent launchLength={launchLength}
-                                handleClick={this.handleTileClick}
-                                incrementValue={incrementValue}/>
+          <Slider{...settings}>
+            <div className={'flight-container-table-container'}>
+              {_.map(launches, (launch, index) => {
+                return <FlightRow launch={launch} key={index}/>;
+              })
+              }
+            </div>
+          </Slider>
         </Fragment>
     );
   }

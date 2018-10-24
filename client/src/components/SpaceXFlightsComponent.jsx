@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import * as launchAction from '../redux/actions/launchAction';
 import {FlightContainer} from './FlightContainer/FlightContainer';
+import logo from '../static/images/spacex.png';
 
 export class SpaceXFlightsComponent extends React.Component {
   constructor() {
@@ -21,11 +22,16 @@ export class SpaceXFlightsComponent extends React.Component {
   };
 
   render() {
-    console.log(this.props.launches)
+    console.log(this.props.launches);
     return (
         this.props.launches.length > 0 ?
-            <div className={'launch-container'}>
-              <FlightContainer launches={this.props.launches}/>
+            <div className={'spacex-container'}>
+              <div className={'logo-container'}>
+                <img src={logo} className={'logo-img'}/>
+              </div>
+              <div className={'launch-container'}>
+                <FlightContainer launches={this.props.launches}/>
+              </div>
             </div> :
             <div>{}</div>);
   }
