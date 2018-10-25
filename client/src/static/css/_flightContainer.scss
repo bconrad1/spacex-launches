@@ -50,7 +50,7 @@ body {
   display: inline-block;
   -webkit-box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.2);
   -moz-box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.2);
-  box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, .5);
 
   .flight-card-number {
     font-size: 18px;
@@ -61,14 +61,12 @@ body {
   .flight-card-date {
     font-size: 24px;
     padding: 0 36px;
-    color: #fff;
-    margin-top: 25px;
+    color: #aaa;
   }
   .flight-card-top {
     background-color: #333;
     position: relative;
     height: 200px;
-    padding-top: 25px;
     border-radius: 10px 10px 0 0;
     border-bottom: 1px solid rgba(255,255,255,.3);
 
@@ -84,12 +82,28 @@ body {
         width: 125px;
       }
     }
-
-    .flight-card-name {
+    .flight-card-number {
       font-size: 32px;
       color: #ddd;
       text-align: center;
       text-transform: uppercase;
+    }
+    .success-container{
+      color: #aaa;
+      text-align: right;
+      padding: 5px 5px 0 0;
+      font-size: 16px;
+    }
+  }
+  .flight-card-bottom{
+    text-align: center;
+    .flight-card-name{
+      color: white;
+      font-size: 24px;
+      margin: 85px auto 0 auto;
+      padding: 10px 15px;
+      border-bottom: 1px solid #aaa;
+      width: fit-content;
     }
   }
 }
