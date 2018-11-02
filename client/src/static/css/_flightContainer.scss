@@ -105,51 +105,103 @@ body {
     }
   }
 
-  .bottom-row{
+  .bottom-row {
     border-top: 1px solid #666;
-    padding-top: 10px;
-    margin-top: 15px;
+    margin: 0 20px 0 20px;
   }
 
-  .bottom-row:first-child{
+  .bottom-row:first-child {
     border-top: none;
-    margin: 0;
   }
+
+  .flight-card-bottom-container{
+    overflow:hidden;
+  }
+
   .flight-card-bottom {
     text-align: left;
     padding: 75px 30px 0 20px;
-    font-size: 16px;
+    font-size: 18px;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
 
+    .flight-card-row {
+      color: white;
+      padding: 10px 0;
+    }
     .descriptor {
       text-transform: uppercase;
       color: #aaa;
       margin-right: 10px;
     }
 
-    #calender-date {
-      color: #aaa;
-      text-transform: uppercase;
-      margin-right: 10px;
-    }
-    .flight-card-date {
-      font-size: 20px;
-      color: white;
-      text-align:center;
+    .flight-card-row-details {
+      height: 175px;
+      overflow: hidden;
     }
 
-    .flight-card-details{
-      padding: 0 20px;
-      font-size: 18px;
-      color:white;
-      max-height: 150px;
-      overflow-y: scroll;
+    .expand-icon-container {
+      margin-top: 5px;
+      height: 28px;
+      text-align: center;
     }
+    .expand-text {
+      font-size: 18px;
+      color: #fbab20;
 
-    .flight-card-location{
-      padding: 0 20px;
-      font-size: 18px;
-      color:white;
     }
+    .expand-text:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+.full-details{
+  transform: translateX(600px);
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+
+}
+
+.hide-details{
+  transform: translateX(-600px);
+}
+
+.show-details{
+  transform: translateX(0);
+}
+
+//Taken from https://github.com/IanLunn/Hover/blob/master/css/hover.css
+.hvr {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+}
+
+.hvr:hover {
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
+.icon-links-container {
+  text-align: center;
+  margin-top: 25px;
+  .icon {
+    color: #ccc;
+    font-size: 32px;
+    margin: 0 10px;
+  }
+
+  .icon:hover {
+    font-size: 32px;
+    color: white;
+    cursor: pointer;
   }
 }
 
