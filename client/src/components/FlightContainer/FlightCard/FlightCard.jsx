@@ -3,7 +3,7 @@ import {Icon} from 'semantic-ui-react';
 import moment from 'moment';
 import FlightCardRow from './FlightCardRow';
 import PropTypes from 'prop-types';
-import {FaChevronDown} from 'react-icons/fa';
+import {FaArrowAltCircleLeft} from 'react-icons/fa';
 import IconLinks from './IconLinks';
 
 export class FlightCard extends Component {
@@ -12,8 +12,8 @@ export class FlightCard extends Component {
     this.state = {
       expanded: false,
       detailLength: props.launch.details.length,
-      lengthLimit: 300,
-      showDetails: false
+      lengthLimit: 200,
+      showDetails: false,
     };
   }
 
@@ -22,14 +22,15 @@ export class FlightCard extends Component {
   };
 
   formatDetails = (details) => {
-    return this.state.detailLength > this.state.lengthLimit
-        ? `${details.substring(0, 300)}...`
+    let {detailLength, lengthLimit} = this.state;
+    return detailLength > lengthLimit
+        ? `${details.substring(0, lengthLimit)}...`
         : details;
   };
 
   handleShowDetails = () => {
     this.setState({showDetails: !this.state.showDetails});
-  }
+  };
 
   render() {
     let {launch} = this.props;
@@ -60,28 +61,40 @@ export class FlightCard extends Component {
             </div>
           </div>
           <div className={'flight-card-bottom-container'}>
-            <div className={`flight-card-bottom ${showDetails ? 'hide-details' : ''}`}>
-              <FlightCardRow descriptor={'Date'}
-                             text={this.formatDate(launch.date)}
-                             className={'flight-card-row-date'}/>
-              <FlightCardRow descriptor={'Site'} text={launch.launchSite}
-                             className={'flight-card-row-site'}/>
-              <FlightCardRow descriptor={'Details'}
-                             text={this.formatDetails(launch.details)}
-                             className={`flight-card-row-details ${expanded
-                                 ? 'details-expanded'
-                                 : ''}`}/>
-              <div className={'expand-icon-container'}>
-                {detailLength > lengthLimit &&
-                <div className={'expand-text hvr'} onClick={this.handleShowDetails}>{'Read More...'}</div>}
+            <div
+                className={`flight-card-bottom-slide-container ${this.state.showDetails
+                    ? 'show-details'
+                    : 'hide-details'}`}>
+              <div className={`flight-card-bottom ${showDetails
+                  ? 'hide-details'
+                  : ''}`}>
+                <FlightCardRow descriptor={'Date'}
+                               text={this.formatDate(launch.date)}
+                               className={'flight-card-row-date'}/>
+                <FlightCardRow descriptor={'Site'} text={launch.launchSite}
+                               className={'flight-card-row-site'}/>
+                <FlightCardRow descriptor={'Details'}
+                               text={this.formatDetails(launch.details)}
+                               className={`flight-card-row-details ${expanded
+                                   ? 'details-expanded'
+                                   : ''}`}/>
+                <div className={'expand-icon-container'}>
+                  {detailLength > lengthLimit &&
+                  <div className={'expand-text hvr'}
+                       onClick={this.handleShowDetails}>{'Read More...'}</div>}
+                </div>
+                <IconLinks newsLink={launch.article}
+                           imageLink={launch.missionPatch}
+                           videoLink={launch.video}/>
               </div>
-              <IconLinks newsLink={launch.article}
-                         imageLink={launch.missionPatch}
-                         videoLink={launch.video}/>
-            </div>
-            <div className={`full-details ${showDetails ? 'show-details':''}`}>
-              <div className={'full-details-header'}>{'DETAILS'}</div>
-              <div className={'full-details-text'}>{launch.details}</div>
+              <div className={'full-details'}>
+                <div className={'full-details-header'}>{'FULL DETAILS'}</div>
+                <div className={'full-details-text'}>{launch.details}</div>
+                <div className={'full-details-back-btn hvr'}
+                     onClick={this.handleShowDetails}>
+                  <FaArrowAltCircleLeft/>
+                </div>
+              </div>
             </div>
           </div>
         </div>

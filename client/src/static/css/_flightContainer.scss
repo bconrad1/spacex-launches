@@ -7,7 +7,7 @@ body {
 }
 
 .launch-container {
-  width: 75%;
+  width: 95%;
   margin: 0 auto;
   text-align: center;
 }
@@ -118,7 +118,15 @@ body {
     overflow:hidden;
   }
 
+  .flight-card-bottom-slide-container{
+    width: 1100px;
+    transition: 0.5s;
+    -webkit-transition: 0.5s;
+  }
+
   .flight-card-bottom {
+    width: 550px;
+    display: inline-block;
     text-align: left;
     padding: 75px 30px 0 20px;
     font-size: 18px;
@@ -137,6 +145,7 @@ body {
 
     .flight-card-row-details {
       height: 175px;
+      letter-spacing: 1px;
       overflow: hidden;
     }
 
@@ -157,18 +166,46 @@ body {
 }
 
 .full-details{
-  transform: translateX(600px);
-  -webkit-transition-duration: 0.3s;
-  transition-duration: 0.3s;
+  display:inline-block;
+  width:550px;
+  padding: 115px 30px 0 20px;
+  vertical-align: top;
 
-}
+  .full-details-header{
+    color: #aaa;
+    width: 150px;
+    margin: 0 auto 20px auto;
+    font-size: 18px;
+  }
+  .full-details-header:after {
+    content: "";
+    display: block;
+    margin: 0 auto;
+    width: 60%;
+    padding-top:10px;
+    border-bottom: 1px solid #aaa;
+  }
 
-.hide-details{
-  transform: translateX(-600px);
+  .full-details-text{
+    color: white;
+    letter-spacing: 1px;
+    font-size: 18px;
+  }
+
+
+  .full-details-back-btn{
+    color: #fbab20;
+    font-size:24px;
+    margin-top: 30px;
+  }
+
+  .full-details-back-btn:hover{
+    cursor: pointer;
+  }
 }
 
 .show-details{
-  transform: translateX(0);
+  transform: translateX(-550px);
 }
 
 //Taken from https://github.com/IanLunn/Hover/blob/master/css/hover.css
