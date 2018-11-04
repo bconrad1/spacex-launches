@@ -35,7 +35,6 @@ export class FlightCard extends Component {
   render() {
     let {launch} = this.props;
     let {detailLength, lengthLimit, expanded, showDetails} = this.state;
-    let detailClass = showDetails ? 'show-details' : 'hide-details';
     return (
         <div className={`flight-card-container flight-${launch.flight}`}>
           <div className={'flight-card-top'}>
