@@ -8,7 +8,6 @@ export class FlightContainer extends React.Component {
     super(props);
     this.state = {
       launches: props.launches,
-      sliderValue: 1,
     };
   }
 
