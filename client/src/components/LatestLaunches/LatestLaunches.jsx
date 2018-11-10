@@ -1,7 +1,5 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {bindActionCreators} from 'redux';
-import * as launchAction from '../../redux/actions/launchAction';
 import {FlightContainer} from './FlightContainer/FlightContainer';
 import {FaChevronLeft, FaChevronRight} from 'react-icons/fa';
 
@@ -17,7 +15,6 @@ export class LatestLaunches extends React.Component {
   }
 
   componentDidMount() {
-    this.getDate();
     window.addEventListener('resize', () => {
       if (window.innerWidth > 1900) {
         this.setState({
@@ -43,12 +40,8 @@ export class LatestLaunches extends React.Component {
       activeClass: `slide-${activeCard}`,
     });
   };
-
-  getDate = () => {
-    this.props.launchActions.fetchLaunches();
-  };
-
   render() {
+    console.log('launches', this.props.launches)
     let {activeCard, activeClass} = this.state;
     return (
         this.props.launches.length > 0 ?
@@ -87,13 +80,5 @@ function mapStateToProps(state) {
     launches: state.launchInfo,
   };
 }
-
-function mapDispatchToProps(dispatch) {
-  return {
-    launchActions: bindActionCreators(launchAction, dispatch),
-  };
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(
-    LatestLaunches);
+export default connect(mapStateToProps)(LatestLaunches);
 

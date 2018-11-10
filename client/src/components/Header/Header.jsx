@@ -7,14 +7,14 @@ export default class Header extends Component {
     return (
         <div className={'header-container'}>
           <div className={'header-links'}>
-            <span><Link to={'/'}>{'LATEST'}</Link></span>
-            <span><Link to={'/launches'}>{'LAUNCHES'}</Link></span>
+            <span><Link to={'/'}  className={'route-link first-link'}>{'LATEST'}</Link></span>
+            <span className={'divider'}/>
+            <span><Link to={'/launches'}  className={'route-link'}>{'LAUNCHES'}</Link></span>
           </div>
           <div className={'logo-container'}>
             <img src={logo} className={'logo-img'}/>
           </div>
           <div className={'placeholder'}/>
-
         </div>
     );
   }

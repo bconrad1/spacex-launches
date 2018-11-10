@@ -4,6 +4,7 @@ let path = require('path');
 const htmlPlugin = new HtmlWebPackPlugin({
   template: './src/public/index.html',
   filename: './index.html',
+  publicPath: '/',
 });
 
 module.exports = {
@@ -37,6 +38,9 @@ module.exports = {
         ]
       },
     ],
+  },
+  devServer: {
+    historyApiFallback: true,
   },
   plugins: [htmlPlugin],
 };
