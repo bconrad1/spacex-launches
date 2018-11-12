@@ -4,7 +4,7 @@ import moment from 'moment';
 import FlightCardRow from './FlightCardRow';
 import PropTypes from 'prop-types';
 import {FaArrowAltCircleLeft} from 'react-icons/fa';
-import IconLinks from './IconLinks';
+import IconLinks from '../../../IconLinks';
 
 export class FlightCard extends Component {
   constructor(props) {
@@ -84,7 +84,8 @@ export class FlightCard extends Component {
                 </div>
                 <IconLinks newsLink={launch.article}
                            imageLink={launch.missionPatch}
-                           videoLink={launch.video}/>
+                           videoLink={launch.video}
+                           fontSize={32}/>
               </div>
               <div className={'full-details'}>
                 <div className={'full-details-header'}>{'FULL DETAILS'}</div>

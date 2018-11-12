@@ -129,7 +129,7 @@ body {
   padding: 10px;
   width: 250px;
   margin: 0 auto;
-  border-radius: 0 0 15px 15px;
+  border-radius: 0 0 5px 5px;
   background-color: $primaryColorDark;
   color: white;
   -webkit-box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.2);
@@ -323,70 +323,16 @@ body {
   transform: scale(1.1);
 }
 
-.icon-links-container {
+.icon-links-container-card {
   text-align: center;
   margin-top: 25px;
   .icon {
     color: #ccc;
-    font-size: 32px;
     margin: 0 10px;
   }
 
   .icon:hover {
-    font-size: 32px;
     color: white;
     cursor: pointer;
-  }
-}
-
-.pagination-outer {
-  display: block;
-  text-align: center;
-  margin-top: 20px;
-  .pagination-container {
-    -webkit-box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.1);
-    -moz-box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.1);
-    box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.1);
-    margin: 0 auto;
-    display: inline-block;
-    text-align: center;
-    .pagination-tile {
-      width: 50px;
-      height: 50px;
-      display: table-cell;
-      vertical-align: middle;
-      background: #fff;
-      border: 1px solid #ccc;
-    }
-    .pagination-tile:hover {
-      background-color: #eee;
-      color: #333;
-      cursor: pointer;
-    }
-    .pagination-tile-active {
-      background-color: $primaryColor;
-      color: white;
-    }
-    .pagination-tile-active:hover {
-      background-color: $primaryColorDark;
-      color: white;
-    }
-    .pagination-tile:first-of-type {
-      border-radius: 5px 0 0 5px;
-    }
-    .pagination-tile:last-of-type {
-      border-radius: 0 5px 5px 0;
-    }
-
-    .disabled {
-      color: #aaa;
-    }
-
-    .disabled:hover {
-      color: #aaa;
-      background-color: white;
-      border: 1px solid #ccc;
-      cursor: initial;
-    }
   }
 }

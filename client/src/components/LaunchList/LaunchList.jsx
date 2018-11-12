@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import PaginationComponent from './PaginationComponent/PaginationComponent';
-import LaunchRow from './LaunchRow';
+import LaunchRow from './LaunchRow/LaunchRow';
 
 export class LaunchList extends Component {
   constructor(props) {
     super(props);
-    let incrementValue = 15;
+    let incrementValue = 10;
     let startValue = 0;
     this.state = {
       startValue,
@@ -42,11 +42,12 @@ export class LaunchList extends Component {
             <table className={'flight-container-table-container'}>
               <thead className={'table-container-header'}>
               <tr>
-                <th>{'#'}</th>
-                <th>{'Patch'}</th>
+                <th>{''}</th>
+                <th>{'Flight'}</th>
                 <th>{'Date'}</th>
-                <th>{''}</th>
-                <th>{''}</th>
+                <th>{'Rocket'}</th>
+                <th>{'Links'}</th>
+                <th>{'Success'}</th>
               </tr>
               </thead>
               {_.map(launches, (launch, index) => {

@@ -22,7 +22,7 @@ export class PaginationComponent extends Component {
                    activeTile: i,
                  });
                  this.props.handleClick(i);
-               }} key={i}>{i}</div>);
+               }} key={i}><div className={'pagination-tile-text'}>{i}</div></div>);
     }
     return tileArray;
   };
@@ -42,22 +42,22 @@ export class PaginationComponent extends Component {
     return (
         <div className={'pagination-outer'}>
           <div className={'pagination-container'}>
-            <div className={`${!canGoBack ? 'disabled' : ''} pagination-tile`}
+            <div className={`${!canGoBack ? 'disabled' : ''} navigation-tile`}
                  onClick={() => {
                    canGoBack ? this.handleOnClick(activeTile - 1) : null;
                  }}
-            >{'<'}</div>
+            >{'< Previous'}</div>
             {
               this.getTiles(tileCount)
             }
             <div
-                className={`${!canGoForward ? 'disabled' : ''} pagination-tile`}
+                className={`${!canGoForward ? 'disabled' : ''} navigation-tile`}
                 onClick={
                   () => {
                     canGoForward ? this.handleOnClick(activeTile + 1) : null;
                   }
                 }
-            >{'>'}</div>
+            >{'Next >'}</div>
           </div>
         </div>
     );
