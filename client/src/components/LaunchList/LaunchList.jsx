@@ -43,9 +43,11 @@ export class LaunchList extends Component {
               <thead className={'table-container-header'}>
               <tr>
                 <th>{''}</th>
+                <th>{''}</th>
                 <th>{'Flight'}</th>
                 <th>{'Date'}</th>
                 <th>{'Rocket'}</th>
+                <th id={'th-site'}>{'Site'}</th>
                 <th>{'Links'}</th>
                 <th>{'Success'}</th>
               </tr>

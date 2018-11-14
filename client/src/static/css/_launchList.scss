@@ -1,25 +1,19 @@
 .flights-container {
-  margin: 0 auto 100px auto;
-  width: 50%;
-  @media(max-width: 2400px) {
-    width: 75%;
-  }
+  margin: 75px auto 100px auto;
+  max-width: 1200px;
 }
 
 .flight-container-table-container {
   margin-top: 50px;
   background-color: #fff;
   width: 100%;
+  overflow:hidden;
   //-webkit-box-shadow: 0px 0px 1px 2px rgba(0, 0, 0, 0.1);
   //-moz-box-shadow: 0px 0px 1px 2px rgba(0, 0, 0, 0.1);
   //box-shadow: 0px 0px 1px 2px rgba(0, 0, 0, 0.1);
   border: 1px solid #ddd;
   font-size: 14px;
   text-align:left;
-
-  tr:nth-child(even) {
-    background-color: #f2f2f2
-  }
   .table-container-header {
     background-color: #333333;
     color: white;
@@ -55,7 +49,45 @@
     width: 50px;
     text-align: center
   }
+  .row-rocket-name{
+    width: 115px;
+  }
+  .row-expand{
+    padding-left: 10px;
+    font-size: 16px;
+  }
+  .row-expand-icon:hover{
+    -webkit-transform: scale(1.3);
+    transform: scale(1.3);
+    cursor: pointer;
+  }
+  .row-site{
+    padding: 10px 10px;
+  }
+  #th-site{
+    padding-left: 10px;
+  }
+
+  #th-site, .row-site{
+    @media(max-width:800px){
+      display:none;
+    }
+  }
+
+  .launch-row-details{
+    width: 100%;
+    height:20px;
+    background-color: #333333;
+  }
+  .show-details{
+    display: contents;
+  }
+
+  .hide-details{
+    display:none;
+  }
 }
+
 
 
 .icon-links-container-list{
