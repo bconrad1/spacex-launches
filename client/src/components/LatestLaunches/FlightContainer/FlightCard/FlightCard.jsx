@@ -4,7 +4,8 @@ import moment from 'moment';
 import FlightCardRow from './FlightCardRow';
 import PropTypes from 'prop-types';
 import {FaArrowAltCircleLeft} from 'react-icons/fa';
-import IconLinks from '../../../IconLinks';
+import IconLinks from '../../../shared/IconLinks';
+import MissionPatch from '../../../shared/MissionPatch';
 
 export class FlightCard extends Component {
   constructor(props) {
@@ -56,7 +57,7 @@ export class FlightCard extends Component {
               {launch.rocket.rocket_name}
             </div>
             <div className={'flight-card-image-container'}>
-              <img src={launch.missionPatch} className={'flight-card-image'}/>
+              <MissionPatch src={launch.missionPatch} className={'flight-card-image'}/>
             </div>
           </div>
           <div className={'flight-card-bottom-container'}>

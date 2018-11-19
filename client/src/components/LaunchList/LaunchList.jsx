@@ -32,7 +32,6 @@ export class LaunchList extends Component {
 
     let launchLength = this.props.launches.length;
     let {launches, incrementValue} = this.state;
-    console.log(launchLength)
     return (
         <div className={'spacex-container'}>
           <div className={'flight-container-header'}>
@@ -52,10 +51,12 @@ export class LaunchList extends Component {
                 <th>{'Success'}</th>
               </tr>
               </thead>
-              {_.map(launches, (launch, index) => {
-                return <LaunchRow launch={launch} key={index}/>;
-              })
-              }
+              <tbody>
+                {_.map(launches, (launch, index) => {
+                  return <LaunchRow launch={launch} key={index} index={index}/>;
+                })
+                }
+              </tbody>
             </table>
             <PaginationComponent launchLength={launchLength}
                                  handleClick={this.handleTileClick}
@@ -65,6 +66,7 @@ export class LaunchList extends Component {
     );
   }
 }
+
 function mapStateToProps(state) {
   return {
     launches: state.launchInfo,
