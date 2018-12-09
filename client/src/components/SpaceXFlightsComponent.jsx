@@ -18,11 +18,12 @@ export class SpaceXFlightsComponent extends Component {
 
   render() {
     return (
-        this.props.launches.length > 0 ?
-            <Switch>
-              <Route path={'/launches'} component={LaunchList}/>
-              <Route exact path={'/'} component={LatestLaunches}/>
-            </Switch> : <div> No launches</div>
+        <main>
+          <Switch>
+            <Route exact path={'/'} component={LatestLaunches}/>
+            <Route path={'/launches'} component={LaunchList}/>
+          </Switch>
+        </main>
     );
 
   }

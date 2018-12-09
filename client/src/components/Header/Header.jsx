@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import logo from '../../static/images/spacex2.png';
 import { Link } from 'react-router-dom'
 
-export default class Header extends Component {
+export class Header extends Component {
   render() {
     return (
         <div className={'header-container'}>
@@ -19,3 +19,5 @@ export default class Header extends Component {
     );
   }
 }
+
+export default Header;

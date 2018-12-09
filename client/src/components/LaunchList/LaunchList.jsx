@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component, Fragment} from 'react';
 import {connect} from 'react-redux';
 import PaginationComponent from './PaginationComponent/PaginationComponent';
 import LaunchRow from './LaunchRow/LaunchRow';
@@ -33,36 +33,38 @@ export class LaunchList extends Component {
     let launchLength = this.props.launches.length;
     let {launches, incrementValue} = this.state;
     return (
-        <div className={'spacex-container'}>
-          <div className={'flight-container-header'}>
-            <div>{'Launches'}</div>
-          </div>
-          <div className={'flights-container'}>
-            <table className={'flight-container-table-container'}>
-              <thead className={'table-container-header'}>
-              <tr>
-                <th>{''}</th>
-                <th>{''}</th>
-                <th>{'Flight'}</th>
-                <th>{'Date'}</th>
-                <th>{'Rocket'}</th>
-                <th id={'th-site'}>{'Site'}</th>
-                <th>{'Links'}</th>
-                <th>{'Success'}</th>
-              </tr>
-              </thead>
-              <tbody>
+        <Fragment>
+          <div className={'spacex-container'}>
+            <div className={'flight-container-header'}>
+              <div>{'Launches'}</div>
+            </div>
+            <div className={'flights-container'}>
+              <table className={'flight-container-table-container'}>
+                <thead className={'table-container-header'}>
+                <tr>
+                  <th>{''}</th>
+                  <th>{''}</th>
+                  <th>{'Flight'}</th>
+                  <th>{'Date'}</th>
+                  <th>{'Rocket'}</th>
+                  <th id={'th-site'}>{'Site'}</th>
+                  <th>{'Links'}</th>
+                  <th>{'Success'}</th>
+                </tr>
+                </thead>
+                <tbody>
                 {_.map(launches, (launch, index) => {
                   return <LaunchRow launch={launch} key={index} index={index}/>;
                 })
                 }
-              </tbody>
-            </table>
-            <PaginationComponent launchLength={launchLength}
-                                 handleClick={this.handleTileClick}
-                                 incrementValue={incrementValue}/>
+                </tbody>
+              </table>
+              <PaginationComponent launchLength={launchLength}
+                                   handleClick={this.handleTileClick}
+                                   incrementValue={incrementValue}/>
+            </div>
           </div>
-        </div>
+        </Fragment>
     );
   }
 }

@@ -1,7 +1,6 @@
 import React from 'react';
 
 const Payload = ({payloads}) => {
-  console.log(payloads);
   return (
       <div className={'row-extra-payload-container'}>
         <div className={'row-extra-details-payload-header header'}>{'PAYLOAD INFORMATION'}</div>

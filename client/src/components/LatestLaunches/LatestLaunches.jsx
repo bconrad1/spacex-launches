@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 import {connect} from 'react-redux';
 import {FlightContainer} from './FlightContainer/FlightContainer';
 import {FaChevronLeft, FaChevronRight} from 'react-icons/fa';
@@ -40,37 +40,39 @@ export class LatestLaunches extends React.Component {
       activeClass: `slide-${activeCard}`,
     });
   };
+
   render() {
-    console.log('launches', this.props.launches)
     let {activeCard, activeClass} = this.state;
     return (
         this.props.launches.length > 0 ?
-            <div className={'spacex-container'}>
-              <div className={'flight-container-header'}>
-                <div>{'LATEST'}</div>
-              </div>
-              <div className={`navigation-btn ${activeCard <= 1
-                  ? 'disabled'
-                  : ''}`}>
+            <Fragment>
+              <div className={'spacex-container'}>
+                <div className={'flight-container-header'}>
+                  <div>{'LATEST'}</div>
+                </div>
+                <div className={`navigation-btn ${activeCard <= 1
+                    ? 'disabled'
+                    : ''}`}>
                 <span className={'navigation-icon'}
                       onClick={this.handleSlideLeft}>
                   <FaChevronLeft/>
                 </span>
-              </div>
-              <div className={'launch-slide-container'}>
-                <div className={`launch-container ${activeClass}`}>
-                  <FlightContainer launches={this.props.launches}/>
                 </div>
-              </div>
-              <div className={`navigation-btn ${activeCard >= 3
-                  ? 'disabled'
-                  : ''}`}>
+                <div className={'launch-slide-container'}>
+                  <div className={`launch-container ${activeClass}`}>
+                    <FlightContainer launches={this.props.launches}/>
+                  </div>
+                </div>
+                <div className={`navigation-btn ${activeCard >= 3
+                    ? 'disabled'
+                    : ''}`}>
                 <span className={'navigation-icon'}
                       onClick={this.handleSlideRight}>
                   <FaChevronRight/>
                 </span>
+                </div>
               </div>
-            </div> :
+            </Fragment> :
             <div>{}</div>);
   }
 }
@@ -80,5 +82,6 @@ function mapStateToProps(state) {
     launches: state.launchInfo,
   };
 }
+
 export default connect(mapStateToProps)(LatestLaunches);
 
