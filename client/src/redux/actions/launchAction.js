@@ -6,7 +6,6 @@ export function receiveLaunches(json) {
 
 export function fetchLaunches() {
   return dispatch => {
-    console.log('test')
     return fetch('http://localhost:3001/api/launches', {
       method: 'GET',
       headers: {

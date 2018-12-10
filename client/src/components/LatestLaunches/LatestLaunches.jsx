@@ -44,36 +44,32 @@ export class LatestLaunches extends React.Component {
   render() {
     let {activeCard, activeClass} = this.state;
     return (
-        this.props.launches.length > 0 ?
-            <Fragment>
-              <div className={'spacex-container'}>
-                <div className={'flight-container-header'}>
-                  <div>{'LATEST'}</div>
-                </div>
-                <div className={`navigation-btn ${activeCard <= 1
-                    ? 'disabled'
-                    : ''}`}>
+        <div className={'spacex-container'}>
+          <div className={'flight-container-header'}>
+            <div>{'LATEST'}</div>
+          </div>
+          <div className={`navigation-btn ${activeCard <= 1
+              ? 'disabled'
+              : ''}`}>
                 <span className={'navigation-icon'}
                       onClick={this.handleSlideLeft}>
                   <FaChevronLeft/>
                 </span>
-                </div>
-                <div className={'launch-slide-container'}>
-                  <div className={`launch-container ${activeClass}`}>
-                    <FlightContainer launches={this.props.launches}/>
-                  </div>
-                </div>
-                <div className={`navigation-btn ${activeCard >= 3
-                    ? 'disabled'
-                    : ''}`}>
+          </div>
+          <div className={'launch-slide-container'}>
+            <div className={`launch-container ${activeClass}`}>
+              <FlightContainer launches={this.props.launches}/>
+            </div>
+          </div>
+          <div className={`navigation-btn ${activeCard >= 3
+              ? 'disabled'
+              : ''}`}>
                 <span className={'navigation-icon'}
                       onClick={this.handleSlideRight}>
                   <FaChevronRight/>
                 </span>
-                </div>
-              </div>
-            </Fragment> :
-            <div>{}</div>);
+          </div>
+        </div>)
   }
 }
 

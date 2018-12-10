@@ -1,12 +1,13 @@
 import React, {Component} from 'react';
 import LatestLaunches from './LatestLaunches/LatestLaunches';
 import {Switch, Route} from 'react-router-dom';
-import {bindActionCreators} from 'redux';
 import LaunchList from './LaunchList/LaunchList';
-import * as launchAction from '../redux/actions/launchAction';
 import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
+import * as launchAction from '../redux/actions/launchAction';
+import { withRouter } from 'react-router-dom';
 
-export class SpaceXFlightsComponent extends Component {
+class SpaceXFlightsComponent extends Component {
 
   componentDidMount() {
     this.getData();
@@ -18,14 +19,14 @@ export class SpaceXFlightsComponent extends Component {
 
   render() {
     return (
-        <main>
+        this.props.launches.length > 0 ?
+        <div>
           <Switch>
-            <Route exact path={'/'} component={LatestLaunches}/>
-            <Route path={'/launches'} component={LaunchList}/>
+            <Route exact path='/' component={LatestLaunches}/>
+            <Route path='/launches' component={LaunchList}/>
           </Switch>
-        </main>
+        </div> : null
     );
-
   }
 }
 
@@ -41,6 +42,6 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(
-    SpaceXFlightsComponent);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(SpaceXFlightsComponent));
+
 

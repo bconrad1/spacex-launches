@@ -8,12 +8,13 @@ export class LaunchList extends Component {
     super(props);
     let incrementValue = 10;
     let startValue = 0;
+    let launches = props.launches;
     this.state = {
       startValue,
       incrementValue,
-      fullLaunches: this.props.launches,
+      fullLaunches: launches,
       endValue: incrementValue,
-      launches: this.props.launches.slice(startValue, incrementValue),
+      launches: launches.slice(startValue, incrementValue),
     };
   }
 
@@ -29,11 +30,9 @@ export class LaunchList extends Component {
   };
 
   render() {
-
-    let launchLength = this.props.launches.length;
-    let {launches, incrementValue} = this.state;
+    let {launches, incrementValue, fullLaunches} = this.state;
+    let launchLength = fullLaunches.length;
     return (
-        <Fragment>
           <div className={'spacex-container'}>
             <div className={'flight-container-header'}>
               <div>{'Launches'}</div>
@@ -64,10 +63,10 @@ export class LaunchList extends Component {
                                    incrementValue={incrementValue}/>
             </div>
           </div>
-        </Fragment>
     );
   }
 }
+
 
 function mapStateToProps(state) {
   return {
