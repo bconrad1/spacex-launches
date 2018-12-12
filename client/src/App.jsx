@@ -5,6 +5,7 @@ import Header from './components/Header/Header';
 
 const App = () => (
     <div style={{height: '100%', margin: '0px'}}>
+
       <Header/>
       <SpaceXFlightsComponent/>
     </div>

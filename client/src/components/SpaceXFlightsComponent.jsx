@@ -5,27 +5,45 @@ import LaunchList from './LaunchList/LaunchList';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import * as launchAction from '../redux/actions/launchAction';
-import { withRouter } from 'react-router-dom';
+import {withRouter} from 'react-router-dom';
+import LoadingPage from './LoadingPage';
 
 class SpaceXFlightsComponent extends Component {
+  constructor() {
+    super();
+    this.state = {
+      loaded: false,
+    };
+  }
 
   componentDidMount() {
     this.getData();
   }
 
   getData = () => {
-    this.props.launchActions.fetchLaunches();
+    this.props.launchActions.fetchLaunches().then(() => {
+      console.log('test');
+      this.setState({
+        loaded: true,
+      });
+    });
   };
 
   render() {
+    let launchLength = this.props.launches.length;
+    let classNameLoading = this.state.loaded ? 'hide-loading' : 'show-loading';
+    let classNameShowSite = this.state.loaded ? 'show-site' : 'hide-site';
     return (
-        this.props.launches.length > 0 ?
         <div>
-          <Switch>
-            <Route exact path='/' component={LatestLaunches}/>
-            <Route path='/launches' component={LaunchList}/>
-          </Switch>
-        </div> : null
+          <LoadingPage className={classNameLoading}/>
+          {launchLength > 0 ?
+              <div className={classNameShowSite}>
+                <Switch>
+                  <Route exact path='/' component={LatestLaunches}/>
+                  <Route path='/launches' component={LaunchList}/>
+                </Switch>
+              </div> : null}
+        </div>
     );
   }
 }
@@ -42,6 +60,7 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(SpaceXFlightsComponent));
+export default withRouter(
+    connect(mapStateToProps, mapDispatchToProps)(SpaceXFlightsComponent));
 
 
